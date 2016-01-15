@@ -35,7 +35,7 @@ body {
     
 .ctrlbx {
     width: 300px;
-    height: 300px;
+    height: 200px;
     z-index:2;
     background-color: #fff;
     position: relative;
@@ -46,10 +46,47 @@ body {
     padding: 25px;
 }
 
+    input.mdinput {
+        padding: 5px;
+        border: none;
+        border-bottom: 1px solid #DEDEDE;
+        font-size: 20px;
+        padding-bottom: 2px;
+        width: 70%;
+        margin-top: 3px;
+    
+    }
+
+    input.mdinput:focus {
+        border-bottom: 2px solid #3A8FD8;
+        outline: none;
+    }
+
+    span.iplabel {
+        text-align: left;
+        font-size: 15px;
+        color: #AFAFAF;
+    }
+
 .toolsctrl {
     margin-left: 20px;
+}
+
+.inputctrl {
+    text-align: left;
 }
 
 form {
     display: table;
 }
+
+.midbot {
+    text-align: center;
+    margin-top: 80px;
+}
+
+    .midbot h2 {
+    font-style: italic;
+    font-weight: 400;
+    font-size: 45px;
+    }
