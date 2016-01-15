@@ -1,0 +1,55 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+.header {
+    height: 65px;
+    background-color: #FFFF00;
+    vertical-align: middle;
+    line-height: 65px;
+    width: 100%;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    position: relative;
+    z-index: 2;
+}
+    
+    .header h1 {
+        color: #455A64;
+        margin-top: 0;
+        font-weight: 400;
+        font-size: 25px;
+        padding-left: 40px;
+    }
+    
+.midtop {
+    height: 300px;
+    background-image: url('../img/bgrep.png');
+    position: relative;
+    z-index:0;
+    background-repeat-y: no-repeat;
+    background-size: contain;
+    text-align: center;
+}
+    
+.ctrlbx {
+    width: 300px;
+    height: 300px;
+    z-index:2;
+    background-color: #fff;
+    position: relative;
+    display: inline-block;
+    margin-top: 100px;
+    border-radius: 3.5px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    padding: 25px;
+}
+
+.toolsctrl {
+    margin-left: 20px;
+}
+
+form {
+    display: table;
+}
