@@ -1,11 +1,28 @@
 
+
 var ViewModel = function(first, last) {
     this.firstName = ko.observable(first);										//Obtain first name from data-bind
     this.lastName = ko.observable(last);										//Obtain last name from data-bind
     this.fullName = ko.computed(function() {
-		return freshfirst() + " "  + CmpFirst(this.firstName()) + " " + CmpLast(this.lastName()) + " " + xtralast();		//Return Full Name after passing both parts through their respective functions 
+		return CnstrFN(this.firstName(), this.lastName());		//Return Full Name after passing both parts through their respective functions 
     }, this);
 };
+
+
+
+function CnstrFN(first, last) {
+
+	
+	extra = xtralast();
+	if (extra != "") {
+		var fullname = freshfirst() + " "  +  CmpFirst(first) + genNick(first, last) + " " + CmpLast(last) + " " + extra;	
+	}
+	else {
+		var fullname = freshfirst() + " "  + CmpFirst(first) + " " + CmpLast(last) + " " + extra;	
+	}
+	return fullname;
+}
+
 
 
 function CmpFirst(first) {
@@ -122,6 +139,46 @@ function xtralast() {
 	else {
 	return "";
 	}
+}
+
+function genNick(first, last) {
+	
+	
+	//Function to determine if 	
+	function isVowel(c) {
+    if (c == "a" || c == "e" || c == "i" || c == "o" || c == "u")
+    	{
+    		return 1;
+    	}
+	}
+	
+	
+	//Randomly choose if surname or lastname is to be operated upon
+	aij = Math.random();
+	if (aij > 0.5) {
+		string = first.substr(0,3);
+	}
+	else {
+		string = last.substr(0,3);
+	}
+	
+	if(isVowel(string.charAt(2)) == 1) {
+		//If ending is vowel, generate a completely new name
+		db = ["Eron", "Geovane", "Americana", "Zé Marcos", "Dodô", "Andrey", "Rogério", "Liziero", "Linkon", "Zé Kruger", "Naldinho", "Rovaldo", "Mariano", "Carlitos", "Diego", "Maxwell", "Rafinha", "Thiago"];
+		s = Math.round(Math.random() * (2));
+		name = db[s];
+	}
+
+	else {
+
+	var suffix = ["ey", "alo", "ymar", "aio", "ista"];
+	l = suffix.length;
+	s = Math.round(Math.random() * (l-1));
+		name = string + suffix[s];
+	}
+
+	result = '"' + name + '"'; 
+	return result;
 }
  
 ko.applyBindings(new ViewModel("First", "Last")); 
