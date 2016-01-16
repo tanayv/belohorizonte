@@ -3,7 +3,7 @@ var ViewModel = function(first, last) {
     this.firstName = ko.observable(first);										//Obtain first name from data-bind
     this.lastName = ko.observable(last);										//Obtain last name from data-bind
     this.fullName = ko.computed(function() {
-		return CmpFirst(this.firstName()) + " " + CmpLast(this.lastName()) + " ";		//Return Full Name after passing both parts through their respective functions 
+		return freshfirst() + " "  + CmpFirst(this.firstName()) + " " + CmpLast(this.lastName()) + " " + xtralast();		//Return Full Name after passing both parts through their respective functions 
     }, this);
 };
 
@@ -89,6 +89,39 @@ function CmpLast(last) {
 
 	return last;
 
+}
+
+function freshfirst() {
+//Add a Fresh First Name
+	db = ["Diego", "Francisco", "Alexandre", "Fábio", "Gabriel", "Paulo", "Mário", "Vítor", "Cristiano", "Estevão", "Sérgio", "David", "José", "Adriano", "Alberto", "Jorge", "Rodolfo", "Bernardo", "Fernando", "Frederico", "Felipe", "Fabrício", "Miguel", "Edgar", "Christian", "Nicolas", "Gilberto", "Luciano", "Pedro" ]
+	l = db.length;
+	g = Math.round(Math.random() * (l-1));
+
+//Randomly select whether or not the first name appears
+	i = Math.random()
+
+	if (i>0.5) {
+	return  db[g];
+	}
+	else {
+	return "";
+	}
+}
+
+function xtralast() {
+	db = ["dos Santos", "da Silva", "Júnior"]
+	l = db.length;
+	g = Math.round(Math.random() * (l-1));
+
+//Randomly select whether or not the first name appears
+	i = Math.random()
+
+	if (i>0.5) {
+	return  db[g];
+	}
+	else {
+	return "";
+	}
 }
  
 ko.applyBindings(new ViewModel("First", "Last")); 
